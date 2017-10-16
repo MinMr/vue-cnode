@@ -17,6 +17,9 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <div class="box">
+      <p>11111</p>
+    </div>
   </div>
 </template>
 
@@ -32,7 +35,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
 h1, h2 {
   font-weight: normal;
 }
@@ -49,5 +52,10 @@ li {
 
 a {
   color: #42b983;
+}
+.box {
+  p {
+    color: #f00;
+  }
 }
 </style>
