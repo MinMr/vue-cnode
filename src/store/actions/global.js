@@ -3,7 +3,7 @@
  * @File: 全局调用的actions 
  * @Date: 2017-10-24 10:18:11 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-10-24 10:22:08
+ * @Last Modified time: 2017-10-24 12:50:42
  */
 import Axios from 'axios';
 import {
@@ -35,7 +35,7 @@ export const $get = ({commit}, {url, type, params}) => {
 			}
 		}).then((res) => {
 			if (res.statusText == 'OK') {
-                if (res.data.code == 0) {
+                if (res.data.success) {
                     commit(type, res.data);
                     resolve()
                 } else {
@@ -63,7 +63,7 @@ export const $post = ({commit}, {type, url, params}) => {
 		return new Promise((resolve, reject) => {
 			Axios.post(url, qs.stringify(params)).then((res) => {
 				if (res.statusText == 'OK') {
-                    if (res.data.code == 0) {
+                    if (res.data.success) {
                         commit(type, res.data)
                         resolve()
                     } else {
@@ -84,7 +84,7 @@ export const $post = ({commit}, {type, url, params}) => {
 				...params
 			}).then((res) => {
 				if (res.statusText == 'OK') {
-                    if (res.data.code == 0) {
+                    if (res.data.success) {
                         resolve(res.data)
                     } else {
                         failMessage(res.data.message);

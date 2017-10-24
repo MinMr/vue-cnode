@@ -37,7 +37,7 @@ export default {
     }
     .nav {
         float: right;
-        color: #ccc;
+        color: #fff;
         li {
             float: left;
             width: 100px;

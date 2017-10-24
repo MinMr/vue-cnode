@@ -29,7 +29,7 @@ export default {
     .header-box {
         width: 100%;
         height: 70px;
-        background: #444;
+        background: #409EFF;
     }
 }
 </style>
