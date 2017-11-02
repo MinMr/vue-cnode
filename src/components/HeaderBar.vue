@@ -5,7 +5,9 @@
         </a>
         <ul class="nav">
             <li>
-                <p>首页</p>
+                <p @click="handleToIndexClick">
+                    首页
+                </p>
             </li>
             <li>
                 <p>Vue</p>
@@ -17,6 +19,11 @@
 <script>
 export default {
     name: 'HeaderBar',
+    methods: {
+        handleToIndexClick () {
+            this.$router.push('/');
+        }
+    }
 }
 </script>
 

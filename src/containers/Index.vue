@@ -17,7 +17,7 @@
         </div>
         <div class="content-box" v-loading.fullscreen.lock="loading" element-loading-text="拼命加载中">
             <ul>
-                <li v-for="(item, index) in topicsList"  :key="index">
+                <li v-for="(item, index) in list"  :key="index">
                     <img class="img" :src="item.author.avatar_url" alt="">
                     <span class="user">{{ item.author.loginname }}</span>
                     <span>
@@ -27,12 +27,13 @@
                     <span :class="item.top ? 'type top' : 'type'">
                         {{ item.top ? '置顶' : type[item.tab] ? type[item.tab] : '问题' }}
                     </span>
-                    <span class="title">{{ item.title }}</span>
+                    <span class="title" @click="handleTitleClick(item.id)">{{ item.title }}</span>
                     <span class="img-box">
                         <span class="last-reply">两小时前</span>
                     </span>
                 </li>
             </ul>
+            <el-button type="primary" class="load-more" @click="handleLoadMoreClick">加载更多...</el-button>
         </div>
     </div>
 </template>
@@ -47,10 +48,12 @@ export default {
         return {
             page: 1,
             tab: '',
-            limit: 100,
+            limit: 20,
             mdrender: true,
             activeName: 'first',
             loading: true,
+            list: [],
+            flag: true,
             tabArr: [
                 {
                     type: '',
@@ -80,6 +83,14 @@ export default {
     computed : {
         ...mapGetters(['topicsList'])
     },
+    watch: {
+        topicsList () {
+            if (this.flag) {
+                this.flag = false;
+                this.list = this.topicsList;
+            }
+        }
+    },
     methods: {
         ...mapActions(['$get']),
         // 获取列表
@@ -97,29 +108,29 @@ export default {
                 params: params
             }).then(() => {
                 this.loading = false;
+                this.list = this.topicsList;
             });
         },
-        handleTabClick(tab) {
+        handleTabClick (tab) {
             this.tab = tab;
             this.fetcheTopicsList();
+        },
+        handleLoadMoreClick () {
+            this.page++;
+            this.fetcheTopicsList();
+            this.list = this.list.concat(this.topicsList);
+        },
+        handleTitleClick (id) {
+            this.$router.push({
+                path: '/topicDetail',
+                query: {
+                    id: id
+                }
+            })
         }
     },
     mounted () {
         this.fetcheTopicsList();
-        // this.$nextTick(() => {
-        //     let clientHeight =  document.documentElement.clientHeight || document.body.clientHeight;
-        //     let scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
-        //     document.body.onscroll = () => {
-        //         let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        //         console.log(scrollHeight - scrollTop - clientHeight);
-        //         console.log(scrollHeight, scrollTop, clientHeight);
-        //         const height = scrollHeight - (scrollTop + clientHeight);
-        //         if (height > 50 && height < 60) {
-        //             this.page++;
-        //             this.fetcheTopicsList();
-        //         }
-        //     };
-        // })
     }
 }
 </script>
@@ -139,7 +150,6 @@ export default {
             height: 40px;
             line-height: 40px;
             border-bottom: 1px #ccc solid;
-            cursor: pointer;
             .reply {
                 color: #f00;
             }
@@ -167,10 +177,17 @@ export default {
             }
             .img {
                 margin-right: 15px;
-                width: 20px;
-                height: 20px;
+                width: 25px;
+                height: 25px;
                 vertical-align: middle;
             }
+            .title {
+                cursor: pointer;
+            }
+        }
+        .load-more {
+            width: 100%;
+            margin: 10px 0;
         }
     }
 }
