@@ -8,7 +8,7 @@
         <div class="topic-detail-content" v-html="topicDetailContent">
             {{topicDetailContent}}
         </div>
-        <div class="top-detail-reply">
+        <div class="top-detail-reply" v-loading.fullscreen.lock="loading" element-loading-text="拼命加载中">
             <p>
                 <span>评论区域</span>     
                 <span class="">共{{replyCount}}条评论</span>
@@ -38,7 +38,7 @@ export default {
     name: 'TopDetail',
     data () {
         return {
-
+            loading: true,
         }
     },
     computed: {
@@ -50,6 +50,8 @@ export default {
             this.$get({
                 type: types.FETCHE_TOPICS_DSTAIL_CONTENT,
                 url: `${api.fetchTopicDetailContent}/${this.$route.query.id}`,
+            }).then(() => {
+                this.loading = false;
             })
         }
     },
