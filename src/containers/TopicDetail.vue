@@ -14,17 +14,15 @@
                 <span class="">共{{replyCount}}条评论</span>
             </p>
             <ul>
-                <li>
+                <li v-for="(item, index) in topicDetailReply" :key="index">
                     <div>
                         <span>
-                            <img src="" alt="">
+                            <img class="img-header" :src="item.author.avatar_url" alt="">
+                            <span>{{index + 1}}楼</span>
                         </span>
-                        <span>
-                            nimei
+                        <span v-html="item.content">
+                           {{ item.content }} 
                         </span>
-                    </div>
-                    <div>
-                        11111111
                     </div>
                 </li>
             </ul>
@@ -76,6 +74,11 @@ export default {
     li {
         list-style: disc;
         margin-left: 25px;
+        margin: 15px;
+        .img-header {
+            width: 25px;
+            height: 25px;
+        }
     }
     .topic-detail-title {
         p {
