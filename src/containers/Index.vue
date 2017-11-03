@@ -108,17 +108,18 @@ export default {
                 params: params
             }).then(() => {
                 this.loading = false;
-                this.list = this.topicsList;
+                this.list = this.list.concat(this.topicsList);
             });
         },
         handleTabClick (tab) {
+            this.list = [];
+            this.page = 1;
             this.tab = tab;
             this.fetcheTopicsList();
         },
         handleLoadMoreClick () {
             this.page++;
             this.fetcheTopicsList();
-            this.list = this.list.concat(this.topicsList);
         },
         handleTitleClick (id) {
             this.$router.push({
