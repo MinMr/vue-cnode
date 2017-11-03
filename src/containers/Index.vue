@@ -53,7 +53,6 @@ export default {
             activeName: 'first',
             loading: true,
             list: [],
-            flag: true,
             tabArr: [
                 {
                     type: '',
@@ -84,12 +83,6 @@ export default {
         ...mapGetters(['topicsList'])
     },
     watch: {
-        topicsList () {
-            if (this.flag) {
-                this.flag = false;
-                this.list = this.topicsList;
-            }
-        }
     },
     methods: {
         ...mapActions(['$get']),
