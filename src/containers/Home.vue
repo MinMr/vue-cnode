@@ -3,12 +3,12 @@
  * @File: vue练习入口文件 
  * @Date: 2017-11-03 10:54:43 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-03 11:13:19
+ * @Last Modified time: 2017-11-03 16:14:00
  */
 <template>
     <div class="home">
         <el-container>
-            <el-aside width="200px">
+            <el-aside width="201px">
                 <nav-bar></nav-bar>
             </el-aside>
             <el-main>Main</el-main>

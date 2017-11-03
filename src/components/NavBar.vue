@@ -3,7 +3,7 @@
  * @File: 导航菜单
  * @Date: 2017-11-03 11:00:34 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-03 11:16:06
+ * @Last Modified time: 2017-11-03 16:19:16
  */
 <template>
     <div class="nav-bar">
@@ -81,6 +81,12 @@ export default {
 .nav-bar {
     .el-menu {
         border-right: none;
+    }
+    li {
+        width: 199px;
+    }
+    .el-menu-item.is-active {
+        border-right: 2px #409EFF solid;
     }
 }
  
