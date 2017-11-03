@@ -3,7 +3,7 @@
  * @File: vue练习入口文件 
  * @Date: 2017-11-03 10:54:43 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-03 16:46:44
+ * @Last Modified time: 2017-11-03 17:36:52
  */
 <template>
     <div class="home">
@@ -66,7 +66,6 @@ export default {
         bottom: 0;
         top: 75px;
         right: 0;
-        /*background: #f00;*/
     }
 }
 </style>

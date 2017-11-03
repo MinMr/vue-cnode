@@ -15,7 +15,7 @@ export default {
 			error: {
 				code: "",
 				errorid: "13",
-				message: "提醒您 - 您可能输入了错误的链接地址，或者您没有访问权限"
+				message: "提醒您 - 您访问的地址不存在，或者您没有访问权限"
 			}
 		}
 	},

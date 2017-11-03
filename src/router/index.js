@@ -3,7 +3,7 @@
  * @File: 路由文件配置
  * @Date: 2017-10-15 20:36:33 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-03 17:21:26
+ * @Last Modified time: 2017-11-03 17:26:41
  */
 
 import Vue from 'vue';
@@ -16,7 +16,6 @@ const Index = resolve => require(['@/containers/Index'], resolve);
 const TopicDetail = resolve => require(['@/containers/TopicDetail'], resolve);
 const Home = resolve =>  require(['@/containers/Home'], resolve);
 const Counter = resolve =>  require(['@/containers/counter/Counter'], resolve);
-const Test = resolve =>  require(['@/containers/counter/test'], resolve);
 const NotFound = resolve =>  require(['@/containers/404'], resolve);
 
 Vue.use(Router);
@@ -43,10 +42,6 @@ export default new Router({
                     path: 'counter',
                     name: 'Counter',
                     component: Counter,
-                }, {
-                    path: 'test',
-                    name: 'Test',
-                    component: Test,
                 }
             ]
         }, {
