@@ -3,12 +3,13 @@
  * @File: 导航菜单
  * @Date: 2017-11-03 11:00:34 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-03 16:19:16
+ * @Last Modified time: 2017-11-03 17:11:46
  */
 <template>
     <div class="nav-bar">
         <el-menu
-            default-active="2"
+            :router="true"
+            default-active="/home/counter"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose">
@@ -18,17 +19,13 @@
                     <span>导航一</span>
                 </template>
                 <el-menu-item-group>
-                <template slot="title">分组一</template>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
+                    <el-menu-item index="/home/counter">Counter</el-menu-item>
                     <el-menu-item index="1-2">选项2</el-menu-item>
+                    <el-menu-item index="1-3">选项1</el-menu-item>
+                    <el-menu-item index="1-4">选项2</el-menu-item>
+                    <el-menu-item index="1-5">选项1</el-menu-item>
+                    <el-menu-item index="1-6">选项2</el-menu-item>
                 </el-menu-item-group>
-                <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                </el-menu-item-group>
-                <el-submenu index="1-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
             </el-submenu>
             <el-menu-item index="2">
                 <i class="el-icon-menu"></i>
@@ -45,12 +42,16 @@
 <script>
   export default {
     methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
+        handleOpen(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        handleNavClick (path) {
+            debugger
+            this.$router.push(path);
+        }
     }
   }
 </script>
@@ -83,7 +84,7 @@ export default {
         border-right: none;
     }
     li {
-        width: 199px;
+        width: 200px;
     }
     .el-menu-item.is-active {
         border-right: 2px #409EFF solid;

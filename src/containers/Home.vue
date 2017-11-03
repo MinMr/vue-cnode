@@ -3,7 +3,7 @@
  * @File: vue练习入口文件 
  * @Date: 2017-11-03 10:54:43 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-03 16:14:00
+ * @Last Modified time: 2017-11-03 16:46:44
  */
 <template>
     <div class="home">
@@ -11,7 +11,9 @@
             <el-aside width="201px">
                 <nav-bar></nav-bar>
             </el-aside>
-            <el-main>Main</el-main>
+            <el-main>
+                <router-view />    
+            </el-main>
         </el-container>
     </div>
 </template>
@@ -57,6 +59,14 @@ export default {
         bottom: 0;
         top: 75px;
         border-right: solid 1px #e6e6e6;
+    }
+    .el-main {
+        position: absolute;
+        left: 201px;
+        bottom: 0;
+        top: 75px;
+        right: 0;
+        /*background: #f00;*/
     }
 }
 </style>
