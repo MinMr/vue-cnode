@@ -10,7 +10,9 @@
                 </p>
             </li>
             <li>
-                <p>Vue</p>
+                <p @click="handleToHomeClick">
+                    Vue
+                </p>
             </li>
         </ul>
     </div>
@@ -22,6 +24,9 @@ export default {
     methods: {
         handleToIndexClick () {
             this.$router.push('/');
+        },
+        handleToHomeClick () {
+            this.$router.push('/home');
         }
     }
 }

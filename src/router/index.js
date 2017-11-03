@@ -3,7 +3,7 @@
  * @File: 路由文件配置
  * @Date: 2017-10-15 20:36:33 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-02 16:42:56
+ * @Last Modified time: 2017-11-03 10:53:02
  */
 
 import Vue from 'vue';
@@ -14,6 +14,7 @@ import Router from 'vue-router';
  */
 const Index = resolve => require(['@/containers/Index'], resolve);
 const TopicDetail = resolve => require(['@/containers/TopicDetail'], resolve);
+const Home = resolve =>  require(['@/containers/Home'], resolve);
 
 Vue.use(Router);
 
@@ -29,6 +30,10 @@ export default new Router({
             path: '/topicDetail',
             name: 'TopicDetail',
             component: TopicDetail
+        }, {
+            path: '/home',
+            name: 'Home',
+            component: Home
         }
     ]
 })
