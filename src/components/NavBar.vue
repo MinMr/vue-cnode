@@ -13,27 +13,17 @@
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose">
-            <el-submenu index="1">
-                <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>导航一</span>
-                </template>
-                <el-menu-item-group>
-                    <el-menu-item index="/home/counter">Counter</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                    <el-menu-item index="1-3">选项1</el-menu-item>
-                    <el-menu-item index="1-4">选项2</el-menu-item>
-                    <el-menu-item index="1-5">选项1</el-menu-item>
-                    <el-menu-item index="1-6">选项2</el-menu-item>
-                </el-menu-item-group>
-            </el-submenu>
-            <el-menu-item index="2">
-                <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
+            <el-menu-item index="/home/counter">
+                <i class="anticon icon-apple1"></i>
+                <span slot="title">Counter</span>
             </el-menu-item>
-            <el-menu-item index="3">
-                <i class="el-icon-setting"></i>
-                <span slot="title">导航三</span>
+            <el-menu-item index="/home/mock">
+                <i class="anticon icon-setting"></i>
+                <span slot="title">Mock.js</span>
+            </el-menu-item>
+            <el-menu-item index="/home/echart">
+                <i class="anticon icon-picture"></i>
+                <span slot="title">Vue-Echart</span>
             </el-menu-item>
         </el-menu>
     </div>
@@ -49,7 +39,6 @@
             console.log(key, keyPath);
         },
         handleNavClick (path) {
-            debugger
             this.$router.push(path);
         }
     }

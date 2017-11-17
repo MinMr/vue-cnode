@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>title</title>
+    </head>
+    <body>
+        <script>
+            function Person(name) {
+                this.name = name;
+            }
+            Person.prototype = {
+                constructor: Person,
+                job: 'sb'
+            };
+            var obj = new Person('lbj');
+            Object.defineProperty(obj, 'sex', {
+                value: 45,
+                enumerable: false
+            })
+            console.log(obj);
+            for (var key in obj) {
+                document.write(obj[key]);
+            }
+            console.log(Object.keys(obj));
+            console.log()
+        </script>
+    </body>
+</html>

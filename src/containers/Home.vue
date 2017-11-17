@@ -3,7 +3,7 @@
  * @File: vue练习入口文件 
  * @Date: 2017-11-03 10:54:43 
  * @Last Modified by: xiangmin
- * @Last Modified time: 2017-11-03 17:36:52
+ * @Last Modified time: 2017-11-03 18:04:11
  */
 <template>
     <div class="home">
@@ -21,33 +21,10 @@
 <script>
 import NavBar from '../components/NavBar';
 export default {
-    name: 'vue',
-    props: {
-
-    },
-    data() {
-        return {
-
-        }
-    },
+    name: 'Home',
     components: {
         NavBar,
     },
-    computed: {
-
-    },
-    watch: {
-
-    },
-    methods: {
-
-    },
-    created() {
-
-    },
-    mounted() {
-
-    }
 }
 </script>
 
